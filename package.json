@@ -1,7 +1,19 @@
 {
   "name": "chat-escolar",
   "version": "1.0.0",
+  "description": "Chat IA escolar usando Groq API",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "chat",
+    "ai",
+    "groq",
+    "school"
+  ],
+  "author": "Phoenix AI",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",
     "node-fetch": "^2.6.7",

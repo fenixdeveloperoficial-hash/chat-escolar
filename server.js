@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const API_KEY = "SUA_API_KEY_AQUI";
+const API_KEY = process.env.API_KEY;
 
 app.post("/chat", async (req, res) => {
 
@@ -51,6 +51,7 @@ app.post("/chat", async (req, res) => {
 
 });
 
-app.listen(3000, () => {
-    console.log("Servidor rodando");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("Servidor rodando");
 });

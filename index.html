@@ -52,13 +52,15 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
-html {
+html, body {
 scroll-behavior: smooth;
+overflow-x: hidden;
+width: 100%;
+max-width: 100vw;
 }
 body {
 background-color: #faf9f6;
 color: #0f172a;
-overflow-x: hidden;
 cursor: default;
 }
 /* Custom Cursor */
@@ -190,17 +192,22 @@ transform: translateX(0);
 position: relative;
 height: 100vh;
 overflow: hidden;
+width: 100%;
+max-width: 100vw;
 }
 .hero-bg {
 position: absolute;
 inset: 0;
 z-index: 0;
+width: 100%;
+overflow: hidden;
 }
 .hero-bg video {
 width: 100%;
 height: 100%;
 object-fit: cover;
 transform: scale(1.1);
+max-width: 100%;
 }
 .hero-overlay {
 position: absolute;
@@ -215,7 +222,10 @@ height: 100%;
 display: flex;
 flex-direction: column;
 justify-content: center;
+align-items: center;
 padding: 0 2rem;
+max-width: 100%;
+margin: 0 auto;
 }
 .hero-title {
 font-family: 'Playfair Display', serif;
@@ -223,6 +233,8 @@ font-size: clamp(2.5rem, 8vw, 6rem);
 line-height: 1.1;
 color: #faf9f6;
 overflow: hidden;
+max-width: 100%;
+text-align: center;
 }
 .hero-title-line {
 display: block;
@@ -236,18 +248,22 @@ text-transform: uppercase;
 color: #d4a843;
 margin-bottom: 1.5rem;
 opacity: 0;
+text-align: center;
 }
 .hero-description {
 font-family: 'Plus Jakarta Sans', sans-serif;
 font-size: clamp(1rem, 2vw, 1.25rem);
 color: rgba(250,249,246,0.9);
 max-width: 600px;
-margin-top: 2rem;
+margin: 2rem auto 0;
 opacity: 0;
+text-align: center;
 }
 .hero-cta {
 margin-top: 3rem;
 opacity: 0;
+margin-left: auto;
+margin-right: auto;
 }
 .btn-primary {
 display: inline-flex;
@@ -344,6 +360,8 @@ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 gap: 2rem;
 max-width: 1400px;
 margin: 0 auto;
+width: 100%;
+overflow: hidden;
 }
 .feature-card {
 background: #faf9f6;
@@ -352,6 +370,8 @@ border: 1px solid rgba(0,0,0,0.05);
 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 position: relative;
 overflow: hidden;
+opacity: 0;
+transform: translateY(60px);
 }
 .feature-card::before {
 content: '';
@@ -429,6 +449,7 @@ display: flex;
 flex-direction: column;
 justify-content: flex-end;
 padding: 2rem;
+pointer-events: none;
 }
 .gallery-item:hover .gallery-overlay {
 opacity: 1;
@@ -442,6 +463,14 @@ transition: transform 0.4s ease;
 }
 .gallery-item:hover .gallery-title {
 transform: translateY(0);
+}
+@media (max-width: 1024px) {
+.gallery-overlay {
+opacity: 1;
+}
+.gallery-title {
+transform: translateY(0);
+}
 }
 /* Info Cards */
 .info-section {
@@ -659,6 +688,14 @@ height: 300px;
 }
 .footer-grid {
 grid-template-columns: 1fr;
+}
+.hero-content {
+padding: 0 1rem;
+text-align: center;
+}
+.hero-description {
+margin-left: 0;
+margin-right: 0;
 }
 .cursor-dot,
 .cursor-outline {
@@ -1412,17 +1449,31 @@ y: 100,
 scale: 1.2
 });
 // Feature Cards Stagger Animation
-gsap.from('.feature-card', {
+gsap.utils.toArray('.feature-card').forEach((card, i) => {
+gsap.set(card, { opacity: 0, y: 60 });
+gsap.fromTo(card,
+{ y: 60, opacity: 0 },
+{
+y: 0,
+opacity: 1,
+duration: 0.8,
+ease: 'power3.out',
 scrollTrigger: {
 trigger: '.features-grid',
-start: 'top 75%',
+start: 'top 85%',
+once: true
 },
-y: 60,
-opacity: 0,
-duration: 0.8,
-stagger: 0.1,
-ease: 'power3.out'
+delay: i * 0.1
 });
+});
+// Fallback: ensure feature cards are visible after preloader
+setTimeout(() => {
+gsap.utils.toArray('.feature-card').forEach((card, i) => {
+if (parseInt(getComputedStyle(card).opacity) === 0) {
+gsap.set(card, { opacity: 1, y: 0 });
+}
+});
+}, 3000);
 // Info Cards Animation
 gsap.from('.info-card', {
 scrollTrigger: {
@@ -1486,6 +1537,50 @@ ease: 'power3.out'
 }
 });
 });
+// Gallery auto-reveal for mobile
+if (window.innerWidth <= 1024) {
+gsap.utils.toArray('.gallery-item').forEach((item, i) => {
+gsap.set(item, { opacity: 0, y: 30 });
+gsap.fromTo(item,
+{ y: 30, opacity: 0 },
+{
+y: 0,
+opacity: 1,
+duration: 0.8,
+ease: 'power3.out',
+scrollTrigger: {
+trigger: item,
+start: 'top 85%',
+once: true
+},
+delay: i * 0.1
+});
+});
+// Auto-show gallery overlay on mobile
+gsap.utils.toArray('.gallery-overlay').forEach(overlay => {
+gsap.to(overlay, {
+opacity: 1,
+duration: 0.6,
+scrollTrigger: {
+trigger: overlay.closest('.gallery-item'),
+start: 'top 80%',
+once: true
+}
+});
+});
+// Gallery title animation on mobile
+gsap.utils.toArray('.gallery-title').forEach(title => {
+gsap.to(title, {
+y: 0,
+duration: 0.6,
+scrollTrigger: {
+trigger: title.closest('.gallery-item'),
+start: 'top 80%',
+once: true
+}
+});
+});
+} else {
 // Gallery hover effect enhancement
 document.querySelectorAll('.gallery-item').forEach(item => {
 item.addEventListener('mousemove', (e) => {
@@ -1496,6 +1591,7 @@ item.style.setProperty('--mouse-x', `${x}px`);
 item.style.setProperty('--mouse-y', `${y}px`);
 });
 });
+}
 // Add magnetic effect to CTA buttons
 document.querySelectorAll('.btn-primary').forEach(btn => {
 btn.addEventListener('mousemove', (e) => {

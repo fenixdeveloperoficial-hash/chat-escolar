@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galeria Escolar</title>
 
 <style>
@@ -125,6 +126,21 @@ color:#d8d8d8;
 display:none;
 }
 
+/* ANIMAÇÃO DE ENTRADA */
+
+.card{
+opacity:0;
+transform:translateY(40px);
+animation:cardIn 0.7s ease forwards;
+}
+
+@keyframes cardIn{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
 /* LIGHTBOX */
 
 .lightbox{
@@ -185,56 +201,158 @@ grid-template-columns:repeat(2,1fr);
 
 <div class="galeria">
 
-<div class="card">
-<img src="/assets/vd/img/feira1 (1).webp">
-<p>Feira</p>
+<div class="card" style="transition-delay: 100ms;">
+  <img src="assets/vd/galeria/001.webp" loading="lazy" decoding="async" alt="Galeria 001">
+  <p>Momento 001</p>
 </div>
-
-<div class="card">
-<img src="/assets/vd/img/feira2.webp">
-<p>Projeto de Arte</p>
+<div class="card" style="transition-delay: 200ms;">
+  <img src="assets/vd/galeria/002.webp" loading="lazy" decoding="async" alt="Galeria 002">
+  <p>Momento 002</p>
 </div>
-
-<div class="card">
-<img src="/assets/vd/img/feira3.webp">
-<p>Evento Cultural</p>
+<div class="card" style="transition-delay: 300ms;">
+  <img src="assets/vd/galeria/003.webp" loading="lazy" decoding="async" alt="Galeria 003">
+  <p>Momento 003</p>
 </div>
-
-<div class="card">
-<img src="/assets/vd/img/macote1.webp">
-<p>Excursão Escolar</p>
+<div class="card" style="transition-delay: 400ms;">
+  <img src="assets/vd/galeria/004.webp" loading="lazy" decoding="async" alt="Galeria 004">
+  <p>Momento 004</p>
 </div>
-
-<div class="card">
-<img src="/assets/vd/img/mascote2.webp">
-<p>Projeto de Tecnologia</p>
+<div class="card" style="transition-delay: 500ms;">
+  <img src="assets/vd/galeria/005.webp" loading="lazy" decoding="async" alt="Galeria 005">
+  <p>Momento 005</p>
 </div>
-
-<!-- slots extras -->
-
-<div class="card">
-<img src="/assets/vd/img/mascote3.webp">
-<p>Projeto de Tecnologia</p>
+<div class="card" style="transition-delay: 600ms;">
+  <img src="assets/vd/galeria/006.webp" loading="lazy" decoding="async" alt="Galeria 006">
+  <p>Momento 006</p>
 </div>
-<div class="card">
-<img src="/assets/vd/img/orquestra.jpg">
-<p>Projeto de Tecnologia</p>
+<div class="card" style="transition-delay: 700ms;">
+  <img src="assets/vd/galeria/007.webp" loading="lazy" decoding="async" alt="Galeria 007">
+  <p>Momento 007</p>
 </div>
-<div class="card"></div>
-<div class="card"></div>
-<div class="card"></div>
-
-<div class="card"></div>
-<div class="card"></div>
-<div class="card"></div>
-<div class="card"></div>
-<div class="card"></div>
-
-<div class="card"></div>
-<div class="card"></div>
-<div class="card"></div>
-<div class="card"></div>
-<div class="card"></div>
+<div class="card" style="transition-delay: 800ms;">
+  <img src="assets/vd/galeria/008.webp" loading="lazy" decoding="async" alt="Galeria 008">
+  <p>Momento 008</p>
+</div>
+<div class="card" style="transition-delay: 900ms;">
+  <img src="assets/vd/galeria/009.webp" loading="lazy" decoding="async" alt="Galeria 009">
+  <p>Momento 009</p>
+</div>
+<div class="card" style="transition-delay: 0ms;">
+  <img src="assets/vd/galeria/010.webp" loading="lazy" decoding="async" alt="Galeria 010">
+  <p>Momento 010</p>
+</div>
+<div class="card" style="transition-delay: 100ms;">
+  <img src="assets/vd/galeria/011.webp" loading="lazy" decoding="async" alt="Galeria 011">
+  <p>Momento 011</p>
+</div>
+<div class="card" style="transition-delay: 200ms;">
+  <img src="assets/vd/galeria/012.webp" loading="lazy" decoding="async" alt="Galeria 012">
+  <p>Momento 012</p>
+</div>
+<div class="card" style="transition-delay: 300ms;">
+  <img src="assets/vd/galeria/013.webp" loading="lazy" decoding="async" alt="Galeria 013">
+  <p>Momento 013</p>
+</div>
+<div class="card" style="transition-delay: 400ms;">
+  <img src="assets/vd/galeria/014.webp" loading="lazy" decoding="async" alt="Galeria 014">
+  <p>Momento 014</p>
+</div>
+<div class="card" style="transition-delay: 500ms;">
+  <img src="assets/vd/galeria/015.webp" loading="lazy" decoding="async" alt="Galeria 015">
+  <p>Momento 015</p>
+</div>
+<div class="card" style="transition-delay: 600ms;">
+  <img src="assets/vd/galeria/016.webp" loading="lazy" decoding="async" alt="Galeria 016">
+  <p>Momento 016</p>
+</div>
+<div class="card" style="transition-delay: 700ms;">
+  <img src="assets/vd/galeria/017.webp" loading="lazy" decoding="async" alt="Galeria 017">
+  <p>Momento 017</p>
+</div>
+<div class="card" style="transition-delay: 800ms;">
+  <img src="assets/vd/galeria/018.webp" loading="lazy" decoding="async" alt="Galeria 018">
+  <p>Momento 018</p>
+</div>
+<div class="card" style="transition-delay: 900ms;">
+  <img src="assets/vd/galeria/019.webp" loading="lazy" decoding="async" alt="Galeria 019">
+  <p>Momento 019</p>
+</div>
+<div class="card" style="transition-delay: 0ms;">
+  <img src="assets/vd/galeria/020.webp" loading="lazy" decoding="async" alt="Galeria 020">
+  <p>Momento 020</p>
+</div>
+<div class="card" style="transition-delay: 100ms;">
+  <img src="assets/vd/galeria/021.webp" loading="lazy" decoding="async" alt="Galeria 021">
+  <p>Momento 021</p>
+</div>
+<div class="card" style="transition-delay: 200ms;">
+  <img src="assets/vd/galeria/022.webp" loading="lazy" decoding="async" alt="Galeria 022">
+  <p>Momento 022</p>
+</div>
+<div class="card" style="transition-delay: 300ms;">
+  <img src="assets/vd/galeria/023.webp" loading="lazy" decoding="async" alt="Galeria 023">
+  <p>Momento 023</p>
+</div>
+<div class="card" style="transition-delay: 400ms;">
+  <img src="assets/vd/galeria/024.webp" loading="lazy" decoding="async" alt="Galeria 024">
+  <p>Momento 024</p>
+</div>
+<div class="card" style="transition-delay: 500ms;">
+  <img src="assets/vd/galeria/025.webp" loading="lazy" decoding="async" alt="Galeria 025">
+  <p>Momento 025</p>
+</div>
+<div class="card" style="transition-delay: 600ms;">
+  <img src="assets/vd/galeria/026.webp" loading="lazy" decoding="async" alt="Galeria 026">
+  <p>Momento 026</p>
+</div>
+<div class="card" style="transition-delay: 700ms;">
+  <img src="assets/vd/galeria/027.webp" loading="lazy" decoding="async" alt="Galeria 027">
+  <p>Momento 027</p>
+</div>
+<div class="card" style="transition-delay: 800ms;">
+  <img src="assets/vd/galeria/028.webp" loading="lazy" decoding="async" alt="Galeria 028">
+  <p>Momento 028</p>
+</div>
+<div class="card" style="transition-delay: 900ms;">
+  <img src="assets/vd/galeria/029.webp" loading="lazy" decoding="async" alt="Galeria 029">
+  <p>Momento 029</p>
+</div>
+<div class="card" style="transition-delay: 0ms;">
+  <img src="assets/vd/galeria/030.webp" loading="lazy" decoding="async" alt="Galeria 030">
+  <p>Momento 030</p>
+</div>
+<div class="card" style="transition-delay: 100ms;">
+  <img src="assets/vd/galeria/031.webp" loading="lazy" decoding="async" alt="Galeria 031">
+  <p>Momento 031</p>
+</div>
+<div class="card" style="transition-delay: 200ms;">
+  <img src="assets/vd/galeria/032.webp" loading="lazy" decoding="async" alt="Galeria 032">
+  <p>Momento 032</p>
+</div>
+<div class="card" style="transition-delay: 300ms;">
+  <img src="assets/vd/galeria/033.webp" loading="lazy" decoding="async" alt="Galeria 033">
+  <p>Momento 033</p>
+</div>
+<div class="card" style="transition-delay: 400ms;">
+  <img src="assets/vd/galeria/034.webp" loading="lazy" decoding="async" alt="Galeria 034">
+  <p>Momento 034</p>
+</div>
+<div class="card" style="transition-delay: 500ms;">
+  <img src="assets/vd/galeria/035.webp" loading="lazy" decoding="async" alt="Galeria 035">
+  <p>Momento 035</p>
+</div>
+<div class="card" style="transition-delay: 600ms;">
+  <img src="assets/vd/galeria/036.webp" loading="lazy" decoding="async" alt="Galeria 036">
+  <p>Momento 036</p>
+</div>
+<div class="card" style="transition-delay: 700ms;">
+  <img src="assets/vd/galeria/037.webp" loading="lazy" decoding="async" alt="Galeria 037">
+  <p>Momento 037</p>
+</div>
+<div class="card" style="transition-delay: 800ms;">
+  <img src="assets/vd/galeria/038.webp" loading="lazy" decoding="async" alt="Galeria 038">
+  <p>Momento 038</p>
+</div>
 
 </div>
 

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="VendaForça Maskable">
+  <rect width="512" height="512" rx="128" fill="#1d4ed8"/>
+  <rect x="88" y="88" width="336" height="336" rx="88" fill="#0ea5e9"/>
+  <path d="M144 316l68-106 58 68 42-52 56 90" fill="none" stroke="#fff" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
